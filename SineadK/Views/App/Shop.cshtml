@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Product>
+<h1>Welcome to my Shop</h1>
+@foreach(var p in Model)
+{
+   <div class="col-md-3">
+       <div class="well">
+           <img src="~/img/@(p.ProductNumber).jpg" class="img-responsive" alt="@p.Title" />
+           <h3>@p.Title</h3>
+           <ul class="product-props">
+               <li>Price: @p.Price</li>
+               <li>Description: @p.Description</li>
+           </ul>
+           <button id="buyButton" class="btn btn-success">Buy</button>
+       </div>
+   </div>
+}
+

@@ -1,0 +1,31 @@
+﻿[
+  {
+    "Category": "Category 1",
+    "Description": "Description",
+    "Name": "Product Name",
+    "Price": 100.00,
+    "ProductNumber": "100"
+  },
+  {
+    "Category": "Category 1",
+    "Description": "Description 2",
+    "Name": "Product Name 2",
+    "Price": 200.00,
+    "ProductNumber": "200"
+  },
+  {
+    "Category": "Category 2",
+    "Description": "Description 3",
+    "Name": "Product Name 3",
+    "Price": 250.00,
+    "ProductNumber": "300"
+  },
+  {
+    "Category": "Category 2",
+    "Description": "Description 4",  
+    "Name": "Product Name 4",
+    "Price": 300.00,
+    "ProductNumber": "400"
+  }
+]
+
