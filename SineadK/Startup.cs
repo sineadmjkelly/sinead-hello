@@ -15,11 +15,12 @@ namespace SineadK
     public class Startup
     {
         private readonly IConfiguration _config;
+        private readonly IHostingEnvironment _env;
 
-        public Startup(IConfiguration config)
+        public Startup(IConfiguration config, IHostingEnvironment env)
         {
             _config = config;
-
+            _env = env;
         }
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
@@ -27,7 +28,11 @@ namespace SineadK
         {
             services.AddDbContext<SineadContext>(cfg =>
             {
-                cfg.UseSqlServer(_config.GetConnectionString(name: "SineadConnectionString"));
+                if (_env.IsDevelopment())
+                    cfg.UseSqlServer(_config.GetConnectionString(name: "SineadConnectionString"));
+                else if (_env.IsProduction() || _env.IsStaging())
+                    cfg.UseSqlServer(_config.GetConnectionString(name: "ProductionConnectionString"));
+
             });
             services.AddTransient<Services.IMailService, Services.NullMailService>();
             services.AddTransient<SineadSeeder>();
@@ -54,7 +59,7 @@ namespace SineadK
 
             });
 
-            if (env.IsDevelopment())
+            if (env.IsDevelopment() || env.IsProduction())
             {
                 using (var scope = app.ApplicationServices.CreateScope())
                 {

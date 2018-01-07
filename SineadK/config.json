@@ -1,6 +1,7 @@
 ﻿{
   "ConnectionStrings": {
-    "SineadConnectionString": "server=(localdb)\\MSSQLLocalDB; Database=SineadDb; Integrated Security=true; MultipleActiveResultSets=true"
+    "SineadConnectionString": "server=(localdb)\\MSSQLLocalDB; Database=SineadDb; Integrated Security=true; MultipleActiveResultSets=true",
+    "ProductionConnectionString": "Server=tcp:sdbserver.database.windows.net,1433;Initial Catalog=SineadDb;Persist Security Info=False;User ID=sinead;Password=James4WinServer;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
   },
     "Logging": {
       "LogLevel": {
